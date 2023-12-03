@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo</title>
+    <link rel="stylesheet" type="text/css" href="./css/main.css"> 
+    <script src="./js/app.js" defer></script>
+</head>
+<body>
+    <main>
+        <section class="app">
+            <div class="container">
+                <div class="app__wrapper">
+                    <div class="app__details-wrapper">
+                        <h1 class="app__title" title="My Tasks">My Tasks</h1>
+                        <time class="app__time js-time" datetime="00:00">Saturday 02 Dec 2023</time>
+                        <div class="app__btn-group">
+                            <button class="app__btn-item js-all-btn">All<span class="app__badge js-all-badge">0</span></button>
+                            <button class="app__btn-item js-completed-btn">Completed<span class="app__badge js-completed-badge">0</span></button>
+                            <button class="app__btn-item js-uncompleted-btn">Uncompleted<span class="app__badge js-uncompleted-badge">0</span></button>
+                            <button class="app__btn-item js-starred-btn">Starred<span class="app__badge js-starred-badge">0</span></button>
+                        </div>
+                    </div>
+                    <form class="app__form js-form">
+                        <input class="app__input js-input" type="text" name="task" placeholder="Enter your task" aria-label="Enter your task" required>
+                        <button class="app__btn" type="submit">Submit</button>
+                    </form>
+                    <ul class="app__list js-list">
+                        <template class="js-template">
+                            <li class="app__item">
+                                <form class="app__item-form">
+                                    <input class="app__item-input js-complete" type="checkbox" name="complete" aria-label="complete">
+                                    <label class="app__item-label js-label"></label>
+                                </form>
+                                <span class="app__item-text js-text"></span>
+                                <div class="app__actions-wrapper js-btn-wrapper">
+                                    <button class="app__action-btn js-edit-btn"></button>
+                                    <button class="app__action-btn js-delete-btn"></button>
+                                    <button class="app__action-btn js-starred-btn"></button>
+                                </div>
+                            </li>
+                        </template>
+                        
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
