@@ -94,7 +94,8 @@ function render(arr, node) {
     arr.forEach(item => {
         const temp = template.content.cloneNode(true);
         temp.querySelector('.js')
-        temp.querySelector('.js-text').innerHTML = item?.title;
+        temp.querySelector('.js-text').textContent = item?.title;
+        temp.querySelector('.js-text').title = item?.title;
         temp.querySelector('.js-complete').id = `complete-${item?.id}`;
         temp.querySelector('.js-label').setAttribute('for', `complete-${item?.id}`);
         temp.querySelector('.js-complete').dataset.id = item?.id;

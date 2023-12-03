@@ -37,7 +37,8 @@ body {
   flex-direction: column;
   margin: 0;
   font-family: sans-serif;
-  background: black;
+  background-color:#000;
+  background-blend-mode:overlay;
   background-size: cover;
   background-blend-mode:exclusion;
 }
@@ -250,6 +251,11 @@ img {
 .app__item-text {
   padding: 4px 10px;
   border-radius: 8px;
+  max-width: 350px;
+  white-space: no-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
 .app__item-label {
