@@ -29,6 +29,7 @@ html {
 }
 
 
+
 /*Defauly body properties*/
 
 body {
@@ -40,7 +41,7 @@ body {
   background-color:#000;
   background-blend-mode:overlay;
   background-size: cover;
-  background-blend-mode:exclusion;
+  background-blend-mode:multiply;
 }
 
 
@@ -108,6 +109,7 @@ img {
 .app__btn-group {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -199,7 +201,7 @@ img {
 }
 
 .app__btn {
-  padding: 15.7px 18px;
+  padding: 15.8px 18px;
   font-size: 17px;
   background-color: cyan;
   border: 1px solid transparent;
@@ -364,5 +366,13 @@ img {
   }
   to {
     width: 100%;
+  }
+}
+
+
+@media only screen and (max-width: 500px) {
+  .app__btn-group {
+    flex-direction: column;
+    justify-content: center;
   }
 }

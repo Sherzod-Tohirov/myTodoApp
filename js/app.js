@@ -29,6 +29,7 @@ elForm.addEventListener('submit', evt => {
         isStarred: false
     });
     elInput.value = '';
+    todos = todos.sort((a, b) => b.isStarred - a.isStarred);
     saveAndRenderTodos();
     btns.forEach(btn => btn.classList.remove('active'));
 });
@@ -153,10 +154,29 @@ starredBtn.addEventListener('click', (evt) => {
 });
 
 function refreshBadge() {
-    all.textContent = todos.length;
-    completed.textContent = todos.filter(todo => todo?.isCompleted).length;
-    uncompleted.textContent = todos.filter(todo => !todo?.isCompleted).length;
-    starred.textContent = todos.filter(todo => todo?.isStarred).length;
+    if(todos.length) {
+        all.style.display = 'inline-flex';
+        all.textContent = todos.length
+    }
+    else all.style.display = 'none';
+    const completedLength = todos.filter(todo => todo?.isCompleted).length;
+    if(completedLength) {
+        completed.style.display = 'inline-flex';
+        completed.textContent = completedLength
+    }
+    else completed.style.display = 'none';
+    const unCompletedLength = todos.filter(todo => !todo?.isCompleted).length;
+    if(unCompletedLength) {
+        uncompleted.style.display = 'inline-flex';
+        uncompleted.textContent = unCompletedLength
+    }
+    else uncompleted.style.display = 'none';
+    const starredLength = todos.filter(todo => todo?.isStarred).length;
+    if(starredLength) {
+        starred.style.display = 'inline-flex';
+        starred.textContent = starredLength;
+    }
+    else starred.style.display = 'none';
 }
 
 function removeActiveBtnClass() {
