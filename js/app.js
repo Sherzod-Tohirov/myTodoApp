@@ -16,10 +16,18 @@ const btns = [allBtn, completedBtn, uncompletedBtn, starredBtn];
 const template = document.querySelector('.js-template');
 const fragment = new DocumentFragment(); 
 const audio = new Audio('../audio/ding.mp3');
+const modeBtn = document.querySelector('.js-mode-btn');
 let counter = 0;
 let todos = JSON.parse(localStorage.getItem('todos') || "[]");
 elTime.textContent = `${String(date).slice(0, 15)} year`;
 render(todos, elList);
+
+if(!localStorage.getItem('mode')) localStorage.setItem('mode', 'dark');
+if(localStorage.getItem('mode') === 'dark') applyLight();
+else applyDark();
+
+modeBtn.addEventListener('click', applyMode);
+
 elForm.addEventListener('submit', evt => {
     evt.preventDefault();
     todos.push({
@@ -87,6 +95,33 @@ elList.addEventListener('click', (evt) => {
         saveAndRenderTodos();
     }
 })
+
+function applyMode() {
+    const mode = localStorage.getItem('mode');
+    if(mode) {
+
+        if(mode === 'dark') {
+            localStorage.setItem('mode', 'light');
+            applyDark();
+        }
+
+        if(mode === 'light') {
+            localStorage.setItem('mode', 'dark');
+            applyLight();
+        }
+
+    }
+}
+
+function applyDark() {
+    modeBtn.textContent = '🌙 Dark mode';
+    document.body.style.backgroundColor = 'indigo';
+}
+
+function applyLight() {
+    modeBtn.textContent = '☀️ Light mode';
+    document.body.style.backgroundColor = 'black';
+}
 
 
 function render(arr, node) {
